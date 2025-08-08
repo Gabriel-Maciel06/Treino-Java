@@ -1,0 +1,39 @@
+package br.com.fiap.bean;
+
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+public class Equipe {
+	private String nome;
+	private String[] integrantes;
+	public Equipe() {}
+	public Equipe(String nome, ArrayList<String> integrantes) {
+		this.nome = nome;
+		this.integrantes = integrantes;
+	}
+	public String getNome() { return nome; }
+	public void setNome(String nome) { this.nome = nome; }
+
+	public Equipe(String[] integrantes) {
+		this.integrantes = integrantes;
+	}
+
+	public void setIntegrantes(String[] integrantes) {
+		this.integrantes = integrantes;
+	}
+
+	public String[] getIntegrantes() {
+		return integrantes;
+	}
+
+	public void listarEquipe() {
+		String exibe = String.format("Nome da equipe: %s \n", nome);
+		int cont = 1;
+		for (String i : integrantes) {
+			exibe += String.format("Integrante %d: %s \n", cont, i);
+			cont++;
+		}
+		JOptionPane.showMessageDialog(null, exibe, "Listagem da Equipe", JOptionPane.INFORMATION_MESSAGE);
+	}
+}
+
